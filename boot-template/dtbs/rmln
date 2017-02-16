@@ -1,0 +1,6 @@
+#! /bin/sh
+# rmln
+# Author:  CN
+# Version: 1.0
+
+find . -type l -exec rm -v {} \;

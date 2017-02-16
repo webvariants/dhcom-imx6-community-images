@@ -1,0 +1,10 @@
+export IMAGE_NAME=output/images/dhcom-imx6.img
+export ABS_SIZE=1G
+export PART_ONE_SIZE=50M
+export SD_CARD=/dev/sde
+export INTERACTIVE=1
+export FLAVOR=jessie
+# export FLAVOR=debian-minimal
+# export FLAVOR=debian-jessie
+# export FLAVOR=debian-stretch
+# export FLAVOR=debian-sid

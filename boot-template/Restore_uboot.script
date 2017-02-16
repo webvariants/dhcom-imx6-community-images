@@ -1,0 +1,37 @@
+echo "*****************************"
+echo "* R E S T O R E   U B O O T *"
+echo "*****************************"
+
+setenv bootcmd 'update auto; mmc dev ${mmcdev}; if mmc rescan; then run bootlinux; else echo Linux start failed, because mmc${mmcdev} was not found!;fi;'
+setenv bootenv_file 'uLinuxEnv.txt'
+setenv bootlinux 'if run load_bootenv; then run importbootenv;fi; setenv set_rootfs setenv rootfs ${rootfs}; run set_rootfs; setenv set_fdt_file setenv fdt_file ${fdt_file}; run set_fdt_file; run load_fdt; run load_zimage; run linuxargs; bootz ${loadaddr} - ${fdt_addr};'
+setenv console 'ttymxc0,115200'
+setenv eboot_flash_offset '0x100000'
+setenv eboot_image_addr '0x10041000'
+setenv enable_watchdog_128s 'mw.w 20bc000 0xffb7; run serv_watchdog'
+setenv fdt_addr '0x18000000'
+setenv fdt_high '0xffffffff'
+setenv importbootenv 'echo Importing environment from ${bootenv_file}...; env import -t ${loadaddr} ${filesize}'
+setenv linuxargs 'setenv bootargs console=${console} ${rootfs} fbcon=${fbcon} ${videoargs} ${optargs} dhcom=${dhcom} ${backlight} ${parallel_display} ${lvds_display0} ${lvds_display1} SN=${SN}'
+setenv load_bootenv 'echo Loading u-boot environment file ${bootenv_file}...; load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${bootenv_file};'
+setenv load_fdt 'echo Loading device tree ${fdt_file}...; load mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}'
+setenv load_settings_bin 'load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${settings_bin_file}'
+setenv load_splash 'load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${splash_file}'
+setenv load_update_kernel 'load ${src_intf} ${src_dev_part} ${loadaddr} zImage_${dhcom}.update; run setupdateargs; bootz ${loadaddr}'
+setenv load_zimage 'echo Loading linux ${zImage_file}...; load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${zImage_file}'
+setenv loadaddr '0x12000000'
+setenv mmc_rootfs_part '2'
+setenv mmcdev '1'
+setenv mmcpart '1'
+setenv panel 'no_panel'
+setenv serv_watchdog 'mw.w 0x020bc002 0x5555; mw.w 0x020bc002 0xaaaa'
+setenv settings_bin_file 'default_settings.bin'
+setenv setupdateargs 'setenv bootargs console=${console} src_intf=${src_intf} src_dev_part=${src_dev_part} dhcom=${dhcom} ${backlight} ${parallel_display} ${lvds_display0} ${lvds_display1} vt.global_cursor_default=0'
+setenv splash_file 'splash.bmp'
+setenv wec_image_addr '0x10200000'
+
+setenv settings_bin_file 'settings.bin'
+setenv panel
+saveenv
+
+echo "...finished!"

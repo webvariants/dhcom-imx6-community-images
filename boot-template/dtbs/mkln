@@ -1,0 +1,25 @@
+#! /bin/sh
+# mkln
+# Author:  CN
+# Version: 1.0
+
+
+if test $# -ne 2; then
+	echo
+	echo "Making a sym link of all files which include the <src_name_pattern>"
+	echo "Naming the sym link similar to the source name, but replacing"
+	echo "<src_name_pattern> with <tar_replacement_pattern>"
+	echo
+	echo -n "Syntax: "
+	echo -n ${0##*/}
+	echo    " <src_name_pattern> <tar_replacement_pattern>"
+	echo
+	exit 1
+else
+	source_files=$(ls -1 | grep $1)
+	for src_file in $source_files; do
+		tar_file=$(echo $src_file | sed "s/$1/$2/")
+		ln -sfv "$src_file" "$tar_file"
+	done
+fi
+

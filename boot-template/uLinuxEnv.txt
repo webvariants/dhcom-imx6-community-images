@@ -1,0 +1,52 @@
+######################################################################
+# Configuration file for the linux kernel
+######################################################################
+
+# Linux kernel
+######################################################################
+zImage_file=zImage
+rootfs='root=/dev/mmcblk${mmcdev}p${mmc_rootfs_part} rw rootfstype=ext3 rootwait'
+#rootfs='root=/dev/sda1 rw rootfstype=ext3 rootwait'
+#rootfs='root=/dev/nfs rootwait nfsroot=10.64.31.100:/tftpboot/nfsroot ip=dhcp'
+fbcon=rotate:0
+#videoargs='video='
+#optargs='consoleblank=0'
+#optargs='maxcpus=1'
+#optargs='loglevel=8'
+#optargs='g_ether.dev_addr=6e:37:c0:1d:de:c6 g_ether.host_addr=6e:37:c0:1d:de:c7'
+
+#backlight='pwm_bl.disable'
+#backlight='pwm_bl.set=BLGPIO:91,BLINV:0,BLON:1,PWMINV:1'
+
+#parallel_display='parallel_display.disable'
+#lvds_display0='imx_ldb.disable0'
+#lvds_display1='imx_ldb.disable1'
+
+#parallel_display='parallel_display.timings='
+#lvds_display0='imx_ldb.timings0='
+#lvds_display1='imx_ldb.timings1='
+#ID:01,PCLK:11100000,XRES:480,YRES:272,HFP:42,HBP:86,HSYNC:64,VFP:10,VBP:33,VSYNC:2,HINV:1,VINV:1,DEINV:0,PCLKPOL:0
+#ID:10,PCLK:33250000,XRES:800,YRES:480,HFP:64,HBP:64,HSYNC:128,VFP:10,VBP:10,VSYNC:25,HINV:0,VINV:0,DEINV:0,PCLKPOL:0
+#ID:11,PCLK:30000000,XRES:800,YRES:600,HFP:112,HBP:88,HSYNC:48,VFP:10,VBP:30,VSYNC:3,HINV:1,VINV:1,DEINV:0,PCLKPOL:0
+#ID:13,PCLK:33260000,XRES:800,YRES:480,HFP:42,HBP:86,HSYNC:128,VFP:10,VBP:33,VSYNC:2,HINV:1,VINV:1,DEINV:0,PCLKPOL:1
+#ID:19,PCLK:76000000,XRES:1366,YRES:768,HFP:60,HBP:40,HSYNC:100,VFP:30,VBP:6,VSYNC:2,HINV:0,VINV:0,DEINV:0,PCLKPOL:0
+
+
+# Device tree
+######################################################################
+
+### auto cpu type ################################
+fdt_file=/dtbs/${dhcom}B-pdk2.dtb
+
+### imx6 Solo ####################################
+#fdt_file=/dtbs_4.4.38/imx6s-dhcom3B-pdk2.dtb
+
+### imx6 DualLite ################################
+#fdt_file=/dtbs_4.4.38/imx6dl-dhcom3B-pdk2.dtb
+
+### imx6 Dual ####################################
+#fdt_file=/dtbs_4.4.38/imx6d-dhcom3B-pdk2.dtb
+
+### imx6 Quad ####################################
+#fdt_file=/dtbs_4.4.38/imx6q-dhcom3B-pdk2.dtb
+

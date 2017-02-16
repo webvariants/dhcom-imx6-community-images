@@ -1,0 +1,7 @@
+Image Release Date: 2017-01-25
+
+Bootloader u-boot Quad                  DH Version: 1.1.0.4
+Bootloader u-boot Dual                  DH Version: 1.1.0.4
+Bootloader u-boot DualLite              DH Version: 1.1.0.4
+Bootloader u-boot Solo                  DH Version: 1.1.0.4
+Linux Kernel 4.4.38 + Device Tree       2017-01-25 (git f41d6a4)
