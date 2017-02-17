@@ -10,7 +10,7 @@ function createImage() {
   rm ${IMAGE_NAME}.*
   fallocate -l ${ABS_SIZE} ${IMAGE_NAME}
   echo -en ",${PART_ONE_SIZE}\n,\n" | sudo sfdisk ${IMAGE_NAME}
-  sudo losetup -d /dev/loop?
+  sudo losetup -D
   sudo losetup -fP ${IMAGE_NAME}
   sudo mkfs.ext3 -F -L boot $(getCurrentLoopDevice)p1
   sudo mkfs.ext3 -F -L rootfs $(getCurrentLoopDevice)p2

@@ -1,6 +1,6 @@
 #!/bin/bash
 
 docker build -t dhcom-builder docker
-docker run -v $(pwd):/src --privileged -it dhcom-builder
+docker run -v /dev:/dev -v $(pwd):/src --privileged -it dhcom-builder
 
 exit $?

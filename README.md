@@ -16,6 +16,8 @@ This will start building the build container image, and then continues with usin
 
 In the begining you will be presented buildroots ncurses based configuration environment. You do not have to do anything here, but you can! After that, the kernel will be build. After all kernel-build dependencies being build you see a second ncurses based config environment. This time it's the kernels menuconfig. You don't need to edit anything, but  like before you can.  
 
+If your kernel config is done, go and get a cup of coffee, or better cook a whole pot. This will take a while.
+
 After everything is builded, a sd-card image is created, suitable to be booted from your device.
 
 You can find it in `output/images/dhcom-imx6-minimal.img.xz`. You will also find a bmapfile which will help you save time while flashing the image to a real sd-card.
@@ -37,6 +39,7 @@ You can use the dhcom-builder docker image to flash your sd-card.
 
 ```bash
 SDCARD=/dev/sde
+sudo umount ${SDCARD}?
 docker run \
   -v $(pwd)/output/images:/images \
   --privileged \
