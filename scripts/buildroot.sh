@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function initBuildroot() {
-  git clone --depth=1 https://github.com/buildroot/buildroot output/buildroot
+  git clone --branch 2017.02-rc1 --depth=1 https://github.com/buildroot/buildroot output/buildroot
   cp configs/buildroot-config output/buildroot/.config
   cp configs/linux-config output/buildroot/linux-config
   mkdir -p output/ssh/ output/images/
