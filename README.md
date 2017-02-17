@@ -10,7 +10,7 @@ There is a docker based build process in this repository. Therefore only docker 
 
 To build the minimal flavor simply run the following line of code:
 ```bash
-bash ./docker-based-build.sh
+make
 ```
 This will start building the build container image, and then continues with using this container to clone [buildroot](https://github.com/buildroot/buildroot), configure it for the imx6 architecture and include a basic set of tools, configure the kernel, and starts building everything.
 
