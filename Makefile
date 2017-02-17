@@ -1,5 +1,8 @@
 # Toplevel Makefile
 
+docker-build:
+	bash docker-based-build.sh
+
 build: build-kernel build-rootfs
 
 build-kernel: output/boot.tar

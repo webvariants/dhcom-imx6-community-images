@@ -8,8 +8,8 @@ function initBuildroot() {
   yes '' | ssh-keygen -f output/ssh/master-key
   mkdir -p rootfs-overlay/root/.ssh/
   cat $(pwd)/output/ssh/master-key.pub > rootfs-overlay/root/.ssh/authorized_keys
-  cp -rf rootfs-overlay output/buildroot/
-  cp -rf patches output/buildroot/
+  cp -rvf rootfs-overlay output/buildroot/
+  cp -rvf patches output/buildroot/
 }
 
 function buildKernel() {
