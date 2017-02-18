@@ -4,7 +4,38 @@ DHCOM imx6 community images
 This repo provides community images for the imx6 based System-on-Modules from [DHCOM](http://www.dh-electronics.com/produkt/dhcom-imx6x/)
 Currently only the `minimal` flavor works, but `debian-jessie` and `debian-stretch` will hopefully follow.
 
+## For the impatient
+If you only want to try the image, first discover what your sdcard is and then execute the following line of code:
+```bash
+wget -O - https://git.io/vD7EI | xzcat | sudo dd of=$SDCARD
+```
+Now insert the sd-card into your dhcom-imx6 board and boot! You can login via serial (115200 Baud 8N1) with root:toor. To add a ssh key just edit /root/.ssh/authorized_keys on the second partition of your sd-card.
+
+## Features
+* Linux 4.9.10
+* Systemd
+* Container ready!
+  * all needed kernel features are enabled
+  * [rkt](https://coreos.com/rkt) container runtime included
+* Wifi ready
+  * kernel contains support for a wide range of wifi devices
+  * hostapd preconfigured to provide access point
+  * firmware NOT included
+* Hand selected set of command line tools and other deps including:
+  * git
+  * e2fs-tools
+  * lm-sensors
+  * lshw
+  * lvm-tools
+  * powertop
+  * ca-certificates
+  * curl
+  * bmon
+  * can-utils
+  * ...
+
 ## How to Build
+If you want more control over the image, build it yourself. It's dead-simple, and the only thing you need to do is to execute a single line.
 
 There is a docker based build process in this repository. Therefore only docker is required to build the images.
 
